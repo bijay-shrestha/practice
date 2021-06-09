@@ -36,7 +36,7 @@ public class LargestAdjacentSum {
             return a[0] + a[1];
         }
         int prevSum = a[0] + a[1];
-        int largestSum = a[0];
+        int largestSum = 0;
 
         for (int i = 0; i < len - 1; i++) {
             if (i != 0)

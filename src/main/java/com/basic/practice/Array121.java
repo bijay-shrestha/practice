@@ -152,7 +152,7 @@ public class Array121 {
             return 0;
         }
 
-        if (startBeginningOneCount && startMiddleTwoCount && startEndingOneCount && len == index) {
+        if (startMiddleTwoCount && startEndingOneCount) {
             return 1;
         }
         return 0;

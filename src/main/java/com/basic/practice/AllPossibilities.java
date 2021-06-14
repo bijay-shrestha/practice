@@ -1,7 +1,7 @@
 /**
  * * A non-empty array a of length n is called an array of all possiblities if it contains all numbers between 0
  * * and a.length-1 inclusive.
- *
+ * <p>
  * * Write a method named isAllPossibilities that accepts an integer array and returns 1 if
  * * the array is an array of all possiblities, otherwise it returns 0.
  * *
@@ -29,10 +29,11 @@ public class AllPossibilities {
 //        int[] arrayOfNumbers = {3, 2, 1, 0};
 //        int[] arrayOfNumbers = {1, 2, 4, 3};
 //        int[] arrayOfNumbers = {0, 2, 3};
-//        int[] arrayOfNumbers = {0};
-        int[] arrayOfNumbers = {};
+        int[] arrayOfNumbers = {0};
+//        int[] arrayOfNumbers = {};
         log.info("Checking if the array {} is an array of all possibilities. Return 1 for Yes and 0 for No.", arrayOfNumbers);
         log.info("Actual Result: {}", isAllPossibilities(arrayOfNumbers));
+        log.info("Actual Result alternative way: {}", isAllPossibilitiesAlternative(arrayOfNumbers));
     }
 
     static int isAllPossibilities(int[] a) {
@@ -66,5 +67,26 @@ public class AllPossibilities {
             }
         }
         return a;
+    }
+
+    static int isAllPossibilitiesAlternative(int[] a) {
+        int len = a.length;
+
+        if (len == 0) {
+            return 0;
+        }
+
+        for (int i = 0; i < len - 1; i++) {
+            boolean found = false;
+            for (int j = 0; j < len; j++) {
+                if (a[j] == i) {
+                    found = true;
+                }
+            }
+            if (!found) {
+                return 0;
+            }
+        }
+        return 1;
     }
 }

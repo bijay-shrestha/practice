@@ -49,11 +49,7 @@ public class IsFineArray {
                 }
             }
         }
-        if (primePairCount == 0) {
-            return 1;
-        }
         return 1;
-
     }
 
     static boolean isPrime(int n) {

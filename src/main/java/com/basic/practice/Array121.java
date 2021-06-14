@@ -24,6 +24,7 @@ public class Array121 {
         log.info("Checking if given array {} is sequentially bounded. --> Result: 1 for yes and 0 for no.",
                 arrayOfNumbers);
         log.info("Actual result: {}", is121Array(arrayOfNumbers));
+        log.info("Actual result: {}", is121ArrayAlternative(arrayOfNumbers));
     }
 
     static int is121Array(int[] a) {
@@ -77,6 +78,84 @@ public class Array121 {
         }
 
         return 1;
+    }
+
+    static int is121ArrayAlternative(int[] a) {
+        int startOneCount = 0;
+        int middleTwoCount = 0;
+        int endOneCount = 0;
+        boolean startBeginningOneCount = true;
+        boolean startMiddleTwoCount = false;
+        boolean startEndingOneCount = false;
+        int index = 0;
+        int len = a.length;
+
+        if (len < 3) {
+            return 0;
+        }
+
+        if (startBeginningOneCount) {
+            for (int i = 0; i < len; i++) {
+                if (a[i] == 1) {
+                    startOneCount++;
+                    index++;
+                    if (i + 1 != len && a[i + 1] == 1) {
+                        continue;
+                    } else {
+                        startMiddleTwoCount = true;
+                        break;
+                    }
+                } else {
+                    return 0;
+                }
+            }
+        }
+
+        if (startMiddleTwoCount) {
+            for (int i = index; i < len; i++) {
+                if (a[i] == 2) {
+                    index++;
+                    middleTwoCount++;
+                    if (i + 1 != len && a[i + 1] == 2) {
+                        continue;
+                    } else {
+                        startEndingOneCount = true;
+                        break;
+                    }
+                } else {
+                    return 0;
+                }
+            }
+        }
+
+        if (startEndingOneCount) {
+            int stopIndex = index;
+            for (int i = len; i > stopIndex; i--) {
+                if (a[i - 1] == 1) {
+                    index++;
+                    endOneCount++;
+                    if (a[i - 2] == 1) {
+                        continue;
+                    } else {
+                        if (endOneCount != startOneCount) {
+                            return 0;
+                        }
+                        break;
+                    }
+                } else {
+                    return 0;
+                }
+            }
+        }
+
+        if (len != index) {
+            return 0;
+        }
+
+        if (startBeginningOneCount && startMiddleTwoCount && startEndingOneCount && len == index) {
+            return 1;
+        }
+        return 0;
     }
 }
 

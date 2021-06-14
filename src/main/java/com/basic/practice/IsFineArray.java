@@ -31,7 +31,6 @@ public class IsFineArray {
     static int isFineArray(int[] a) {
         boolean hasFinePair = false;
         int len = a.length;
-        int primePairCount = 0;
 
         for (int i = 0; i < len; i++) {
             if (isPrime(a[i])) {
@@ -39,7 +38,6 @@ public class IsFineArray {
                     if (a[j] == a[i] - 2 || a[j] == a[i] + 2) {
                         if (isPrime(a[j])) {
                             hasFinePair = true;
-                            primePairCount++;
                             break;
                         }
                     }

@@ -13,9 +13,9 @@
  * *
  * * Write a function named isBean that returns 1 if its array argument is a Bean array.
  * * Otherwise it returns a 0.
- * <p>
- * If you are programming in Java, the function signature is
- * int isBean(int[ ] a)
+ * *
+ * * If you are programming in Java, the function signature is
+ * * int isBean(int[ ] a)
  */
 
 package com.basic.practice;

@@ -9,6 +9,7 @@ public class LargestAndSmallestNumber {
         int[] arrayOfNumbers = {5, 7, 2, 4, 4, 19, 10};
         log.info("Getting the smallest and largest number from an array {}", arrayOfNumbers);
         log.info("small: {}, large: {}", getSmallestValueFromArray(arrayOfNumbers), getLargestValueFromArray(arrayOfNumbers));
+        log.info("small: {}, large: {}", getSmallestValueFromArrayAlternative(arrayOfNumbers), getLargestValueFromArrayAlternative(arrayOfNumbers));
     }
 
     static int getSmallestValueFromArray(int[] a) {
@@ -57,5 +58,27 @@ public class LargestAndSmallestNumber {
         }
 
         return large;
+    }
+
+    static int getLargestValueFromArrayAlternative(int[] a) {
+        int largestValue = a[0];
+
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] > largestValue) {
+                largestValue = a[i];
+            }
+        }
+        return largestValue;
+    }
+
+    static int getSmallestValueFromArrayAlternative(int[] a) {
+        int smallestValue = a[0];
+
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] < smallestValue) {
+                smallestValue = a[i];
+            }
+        }
+        return smallestValue;
     }
 }

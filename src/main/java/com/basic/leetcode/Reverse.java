@@ -6,12 +6,34 @@ import lombok.extern.slf4j.Slf4j;
 public class Reverse {
     public static void main(String[] args) {
 //        int number = 1243;
-//        int number = 1534236469;
-        int number = 678586789;
+        int number = 1534236469;
+//        int number = 678586789;
         log.info("Reversing the number {}, we get: {}", number, reverse(number));
     }
 
+
     static int reverse(int x) {
+        int sign = 1;
+        if (x < 0) {
+            sign = -1;
+            x = -1 * x;
+        }
+        int result = 0;
+        int rem = 0;
+        while (x > 0) {
+            rem = x % 10;
+            int reverse = (result * 10) + rem;
+            if ((reverse - rem) / 10 != result) {
+                return 0;
+            }
+            result = reverse;
+
+            x = x / 10;
+        }
+        return sign * result;
+    }
+
+    static int mySolutionForReverse(int x) {
         int sign = 1;
         if (x < 0) {
             sign = -1;

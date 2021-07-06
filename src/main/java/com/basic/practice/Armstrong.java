@@ -19,16 +19,8 @@ public class Armstrong {
 
     static int isArmStrong(int n) {
 
-
         return 0;
     }
 
-    int numberOfCubes(int n) {
-        int count = 0;
-        for (int i = 1; i <= n; i++) {
-            if (n % 3 == 0) {
-                count++;
-            }
-        }
-    }
+
 }

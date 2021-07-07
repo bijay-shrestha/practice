@@ -21,18 +21,33 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class OddHeavy {
     public static void main(String[] args) {
-        int[] arrayOfNumbers = {11, 4, 9, 2, 8};
+//        int[] arrayOfNumbers = {11, 4, 9, 2, 8};
 //        int[] arrayOfNumbers = {11, 4, 9, 2, 3, 10};
 //        int[] arrayOfNumbers = {1};
 //        int[] arrayOfNumbers = {2};
 //        int[] arrayOfNumbers = {1, 1, 1, 1};
 //        int[] arrayOfNumbers = {2, 4, 6, 8, 11};
-//        int[] arrayOfNumbers = {-2, -4, -6, -8, -11};
+        int[] arrayOfNumbers = {-2, -4, -6, -8, -11};
         log.info("Checking if the array {} is Odd-heavy. Return 1 for Yes and 0 for No.", arrayOfNumbers);
         log.info("Actual Result: {}", isOddHeavy(arrayOfNumbers));
     }
 
     static int isOddHeavy(int[] a) {
-        return 1;
+        boolean hasOdd = false;
+
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] % 2 == 1) {
+                hasOdd = true;
+                for (int j = 0; j < a.length; j++) {
+                    if (a[j] % 2 == 0) {
+                        if (a[i] < a[j]) {
+                            return 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        return hasOdd ? 1 : 0;
     }
 }

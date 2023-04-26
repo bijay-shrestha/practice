@@ -38,7 +38,7 @@ public class IsFineArray {
                     if (a[j] == a[i] - 2 || a[j] == a[i] + 2) {
                         if (isPrime(a[j])) {
                             hasFinePair = true;
-                            break;
+                            continue; 
                         }
                     }
                 }
